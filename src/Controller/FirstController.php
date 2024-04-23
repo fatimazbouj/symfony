@@ -25,4 +25,22 @@ class FirstController extends AbstractController
         //     "<h1> Hello world again</h1>"
         // );
     }
+
+    // #[Route(
+    //     '/multi/{integer1}/{integer2}',
+    //     name:"app_multi",
+    //     requirements:[
+    //         "integer1"=>"\d+",
+    //         "integer2"=>"\d+",
+    //     ]
+    // )]
+    // OR
+    #[Route(
+        '/multi/{integer1<\d+>}/{integer2<\d+>}',
+        name:"app_multi"
+    )]
+    public function multiplication($integer1,$integer2 ){
+        $result=$integer1* $integer2;
+        return new Response("<h1> $result </h1>");
+    }
 }
