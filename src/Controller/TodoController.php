@@ -20,9 +20,33 @@ class TodoController extends AbstractController
                 "apprentissage"=>"edudier une nouvelle langue",
             ];
             $session->set('todos',$todos);
+            $this->addFlash('info','La liste des todos a été bien initialisée.');
         }
         return $this->render('todo/index.html.twig', [
             'controller_name' => 'TodoController',
         ]);
+    }
+
+    #[Route('/todo/add/{name}/{val}',name:"app_add_todo")]
+    public function addTodo(Request $request,$name,$val){
+        $session=$request->getSession();
+        if($session->has('todos')){
+            $todos=$session->get('todos');
+            if(isset($todos[$name])){
+
+                $this->addFlash('error',"Le todo $name existe déja!");
+            }else{
+                $todos[$name]=$val;
+                $this->addFlash('success',"Le todo $name a été bien ajouté à la liste.");
+                $session->set('todos',$todos);
+            }
+
+        }else{
+
+            $this->addFlash('error',"La liste des todos n'est pas encore initialisée .");
+        }
+        $this->redirectToRoute('app_todo');
+
+        return $this->render('todo/index.html.twig' );
     }
 }
