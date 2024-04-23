@@ -18,7 +18,8 @@ class FirstController extends AbstractController
         // ]);
         return $this->render('first/index.html.twig',[
             "controller_name"=>"FirstController",
-            "name"=>"Fatima zahra"
+            "name"=>"Fatima zahra",
+            "img"=>"     "
         ]);
 
         // return new Response(
