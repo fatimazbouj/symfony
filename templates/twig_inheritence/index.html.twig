@@ -1,0 +1,14 @@
+{% extends 'heritage.html.twig' %}
+
+{% block titleOfPage %}
+    new Title
+{% endblock %}
+
+{% block contentOfPage %}
+{{ parent() }}
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+{% endblock %}

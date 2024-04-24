@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>   
+    {% block titleOfPage %}
+        Titre de la page
+    {% endblock %} 
+    </title>
+    <link rel="stylesheet" href="styles.css"> <!-- Lien vers une feuille de style CSS -->
+</head>
+<body>
+
+<header>
+    header
+</header>
+<hr>
+{% block contentOfPage %}
+    contenue par defaut de la page.
+{% endblock %} 
+<hr>
+<footer>
+    footer
+</footer>
+    
+</body>
+</html>
